@@ -8,7 +8,6 @@ app.listen(8080)
  
 function handler (req, res) {
     var pathname = url.parse(req.url).pathname;
-    console.log("Request for " + pathname + " received.");
 
     res.writeHead(200);
 
@@ -52,7 +51,7 @@ io.sockets.on('connection', function (socket) {
                 console.log(err)
             }
             else {
-                Files[Name]['Handler'] = fd //We store the file handler so we can write to it later
+                Files[Name]['Handler'] = fd 
                 socket.emit('MoreData', { 'Place' : Place})
             }
         })
